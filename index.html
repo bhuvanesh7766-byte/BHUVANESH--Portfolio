@@ -8,12 +8,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+        html {
+            font-size: 62.5%; /* 1rem = 10px */
+            scroll-behavior: auto !important; /* Lenis handles smooth scrolling */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            scroll-behavior: smooth;
         }
 
         /* Custom Scrollbar */
@@ -45,8 +49,10 @@
         body {
             background: #0f172a;
             color: #f8fafc;
+            font-size: 1.6rem; /* 16px */
             line-height: 1.6;
             transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
         }
 
         header {
@@ -75,6 +81,46 @@
             font-weight: 800;
             letter-spacing: -0.5px;
             transition: color 0.4s ease;
+        }
+
+        /* Experience List & Icon Styling */
+        .card ul {
+            list-style: none !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+        .card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 1.6rem;
+        }
+        .list-icon {
+            color: #38bdf8;
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .light-mode .list-icon {
+            color: #0ea5e9;
+        }
+        .course-grid .skill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+        .course-grid .skill i {
+            width: 16px;
+            height: 16px;
+            color: #38bdf8;
+            flex-shrink: 0;
+        }
+        .light-mode .course-grid .skill i {
+            color: #0ea5e9;
         }
 
         nav ul {
@@ -695,8 +741,129 @@
             50% { border-color: #0ea5e9 }
         }
 
-        /* RESPONSIVE LAYOUTS */
-        @media(max-width: 992px) {
+        /* Typography & Readability Overrides */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2 !important;
+            color: #f8fafc;
+            transition: color 0.4s ease;
+        }
+        .light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4, .light-mode h5, .light-mode h6 {
+            color: #0f172a;
+        }
+        p, li, span, a, label {
+            line-height: 1.6 !important;
+        }
+        p {
+            font-size: 1.6rem !important; /* Consistent readable paragraph size */
+            color: #94a3b8;
+        }
+        .light-mode p {
+            color: #475569;
+        }
+        /* Consistent Headings Hierarchy */
+        h1 {
+            font-size: 4.8rem !important;
+        }
+        h2 {
+            font-size: 3.2rem !important;
+        }
+        h3 {
+            font-size: 1.2em !important; /* 1.2em of paragraph size base (~19.2px) */
+        }
+
+        /* Initial state for staggered entrance animations */
+        .hero-text .tag,
+        .hero-text h1,
+        .hero-text p,
+        .hero-text .buttons,
+        .hero-card {
+            opacity: 0;
+        }
+
+        /* Logo Styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .logo-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            color: #020617;
+            font-weight: 900;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+            transition: all 0.3s ease;
+        }
+        .logo-text {
+            font-weight: 800;
+            font-size: 2.0rem;
+            color: #f8fafc;
+            letter-spacing: -0.5px;
+            transition: color 0.4s ease;
+        }
+        .light-mode .logo-text {
+            color: #0f172a;
+        }
+        .light-mode .logo-badge {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+        }
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+        .logo:hover .logo-badge {
+            transform: scale(1.08) rotate(-5deg);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* RESPONSIVE LAYOUTS (Tablet & Mobile Adaptability) */
+        @media(max-width: 1024px) {
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+            }
+            nav ul {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 280px !important;
+                height: 100vh !important;
+                background: rgba(2, 6, 23, 0.98) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 30px !important;
+                padding: 40px !important;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+                border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+                z-index: 999 !important;
+            }
+            .light-mode nav ul {
+                background: rgba(255, 255, 255, 0.98) !important;
+                border-left-color: rgba(0, 0, 0, 0.05) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
+            }
+            nav ul.active {
+                right: 0 !important;
+            }
+
             .hero {
                 padding-top: 120px;
                 justify-content: center;
@@ -714,56 +881,33 @@
             .buttons {
                 justify-content: center;
             }
-        }
-
-        @media(max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
             .hero-text h1 {
-                font-size: 46px;
+                font-size: 3.6rem !important; /* Scaled down for mobile/tablet */
                 letter-spacing: -1px;
             }
-            
             .typewriter {
                 border-right-width: 2px;
             }
-
             .section {
                 padding: 60px 20px;
             }
-
             .section h2 {
-                font-size: 30px;
+                font-size: 2.6rem !important;
             }
-
             .skill-bar-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
             .skill-name {
                 min-width: unset;
             }
-            
             .skill-bar {
                 width: 100%;
             }
         }
 
-        /* Lenis Smooth Scroll Override */
-        html {
-            scroll-behavior: auto !important;
-        }
+        /* Lenis Smooth Scroll Style Defaults */
         html.lenis, html.lenis body {
             height: auto;
         }
@@ -778,47 +922,6 @@
         }
         .lenis-scrolling iframe {
             pointer-events: none;
-        }
-
-        /* Typography & Readability Overrides */
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.2 !important;
-        }
-        p, li, span, a, label {
-            line-height: 1.6 !important;
-        }
-        p {
-            font-size: 16px;
-            color: #94a3b8;
-        }
-        .light-mode p {
-            color: #475569;
-        }
-
-        /* Logo Styling */
-        .logo {
-            font-size: 26px;
-            font-weight: 800;
-            color: #f8fafc;
-            text-decoration: none;
-            letter-spacing: -1.5px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .logo-accent {
-            color: #38bdf8;
-        }
-        .light-mode .logo {
-            color: #0f172a;
-        }
-        .light-mode .logo-accent {
-            color: #0ea5e9;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
         }
 
         /* Lucide Icon Alignment */
@@ -912,52 +1015,14 @@
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
         }
 
-        /* Responsive menu rules */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            nav {
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                width: 100% !important;
-                padding: 0 10px !important;
-            }
-            nav ul {
-                position: fixed !important;
-                top: 0 !important;
-                right: -100% !important;
-                width: 280px !important;
-                height: 100vh !important;
-                background: rgba(2, 6, 23, 0.98) !important;
-                backdrop-filter: blur(16px) !important;
-                -webkit-backdrop-filter: blur(16px) !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                gap: 30px !important;
-                padding: 40px !important;
-                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
-                border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
-                z-index: 999 !important;
-            }
-            .light-mode nav ul {
-                background: rgba(255, 255, 255, 0.98) !important;
-                border-left-color: rgba(0, 0, 0, 0.05) !important;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
-            }
-            nav ul.active {
-                right: 0 !important;
-            }
-        }
+        /* Consolidated responsive menu configurations are defined above */
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <a href="#home" class="logo">B<span class="logo-accent">.S.</span></a>
+            <a href="#home" class="logo"><span class="logo-badge">BS</span></a>
             <ul id="navLinks">
                 <li><a href="#home" class="nav-link-item"><i data-lucide="home"></i>Home</a></li>
                 <li><a href="#about" class="nav-link-item"><i data-lucide="user"></i>About</a></li>
@@ -1049,11 +1114,11 @@
             <p>Subject Matter Expert (Operations Management & Economics) • Feb 2023 – Jun 2025 (Part-Time)</p>
             <div class="details">
                 <br>
-                <ul style="list-style-type: disc; margin-left: 20px; padding-left: 5px; display: flex; flex-direction: column; gap: 8px;">
-                    <li>Addressed both theoretical and practical questions, tailoring explanations to student needs.</li>
-                    <li>For theoretical queries, provided simplified, clear explanations to enhance understanding.</li>
-                    <li>For practical problems, utilized graphs, tables, and spreadsheets to illustrate solutions and reinforce concepts.</li>
-                    <li>Leveraged AI tools to enhance efficiency, ensuring high-quality support.</li>
+                <ul style="display: flex; flex-direction: column; gap: 8px;">
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Addressed both theoretical and practical questions, tailoring explanations to student needs.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>For theoretical queries, provided simplified, clear explanations to enhance understanding.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>For practical problems, utilized graphs, tables, and spreadsheets to illustrate solutions and reinforce concepts.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Leveraged AI tools to enhance efficiency, ensuring high-quality support.</span></li>
                 </ul>
             </div>
         </div>
@@ -1062,11 +1127,11 @@
             <p>Customer Service Associate</p>
             <div class="details">
                 <br>
-                <ul style="list-style-type: disc; margin-left: 20px; padding-left: 5px; display: flex; flex-direction: column; gap: 8px;">
-                    <li>Managed customer acquisition and built strong client relationships.</li>
-                    <li>Generated leads and implemented effective marketing strategies.</li>
-                    <li>Specialized in cross-selling banking products and services.</li>
-                    <li>Developed skills in customer service and problem-solving.</li>
+                <ul style="display: flex; flex-direction: column; gap: 8px;">
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Managed customer acquisition and built strong client relationships.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Generated leads and implemented effective marketing strategies.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Specialized in cross-selling banking products and services.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Developed skills in customer service and problem-solving.</span></li>
                 </ul>
             </div>
         </div>
@@ -1075,11 +1140,11 @@
             <p>BDA Internship</p>
             <div class="details">
                 <br>
-                <ul style="list-style-type: disc; margin-left: 20px; padding-left: 5px; display: flex; flex-direction: column; gap: 8px;">
-                    <li>Conducted lead generation and identified potential clients.</li>
-                    <li>Assisted in sales and marketing campaigns to drive business growth.</li>
-                    <li>Provided career counseling and guidance to clients.</li>
-                    <li>Gained practical experience in business development strategies.</li>
+                <ul style="display: flex; flex-direction: column; gap: 8px;">
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Conducted lead generation and identified potential clients.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Assisted in sales and marketing campaigns to drive business growth.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Provided career counseling and guidance to clients.</span></li>
+                    <li><i data-lucide="check-circle-2" class="list-icon"></i><span>Gained practical experience in business development strategies.</span></li>
                 </ul>
             </div>
         </div>
@@ -1104,7 +1169,7 @@
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="book-open" style="color: #38bdf8;"></i>BBA</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="book-open" style="color: #38bdf8;"></i>BBA</h3>
                     <p style="color: #94a3b8; font-size: 15px;">Sri Krishna Arts and Science College</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">CGPA: 7.9</span>
@@ -1113,7 +1178,7 @@
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>HSC (12th Grade)</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>HSC (12th Grade)</h3>
                     <p style="color: #94a3b8; font-size: 15px;">BUDS F.H.V.M. HR. SEC SCHOOL</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">89%</span>
@@ -1122,7 +1187,7 @@
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>SSLC (10th Grade)</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>SSLC (10th Grade)</h3>
                     <p style="color: #94a3b8; font-size: 15px;">BUDS F.H.V.M. HR. SEC SCHOOL</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">87%</span>
@@ -1133,17 +1198,17 @@
     <section id="courses" class="section reveal">
         <h2><i data-lucide="award" class="section-icon"></i>Additional Courses</h2>
         <div class="course-grid">
-            <div class="skill">Data Science</div>
-            <div class="skill">Advanced Excel</div>
-            <div class="skill">Tableau</div>
-            <div class="skill">Power BI</div>
-            <div class="skill">RDBMS</div>
-            <div class="skill">Social Media Marketing</div>
-            <div class="skill">HR Management</div>
-            <div class="skill">Financial Literacy</div>
-            <div class="skill">Business and Sustainable Development (NPTEL)</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Python</div>
+            <div class="skill"><i data-lucide="database"></i>Data Science</div>
+            <div class="skill"><i data-lucide="sheet"></i>Advanced Excel</div>
+            <div class="skill"><i data-lucide="pie-chart"></i>Tableau</div>
+            <div class="skill"><i data-lucide="bar-chart-3"></i>Power BI</div>
+            <div class="skill"><i data-lucide="server"></i>RDBMS</div>
+            <div class="skill"><i data-lucide="share-2"></i>Social Media Marketing</div>
+            <div class="skill"><i data-lucide="users"></i>HR Management</div>
+            <div class="skill"><i data-lucide="line-chart"></i>Financial Literacy</div>
+            <div class="skill"><i data-lucide="globe"></i>Business and Sustainable Development (NPTEL)</div>
+            <div class="skill"><i data-lucide="database"></i>SQL</div>
+            <div class="skill"><i data-lucide="terminal"></i>Python</div>
         </div>
     </section>
 
@@ -1171,11 +1236,15 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Lenis Smooth Scroll (Optimized: Smooth Wheel on Desktop, Native Touch on Mobile/Tablet)
+        // Lenis Smooth Scroll Configuration (Only smoothwheel for desktop, native touch for mobile/tablet)
+        let isDesktop = window.innerWidth > 1024;
         const lenis = new Lenis({
-            smoothWheel: true,
-            smoothTouch: false,
-            duration: 1.2
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smoothWheel: isDesktop,
+            smoothTouch: false
         });
 
         function raf(time) {
@@ -1183,6 +1252,15 @@
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+
+        // Update Lenis wheel smooth settings dynamically on resize
+        window.addEventListener('resize', () => {
+            const currentDesktop = window.innerWidth > 1024;
+            if (currentDesktop !== isDesktop) {
+                isDesktop = currentDesktop;
+                lenis.options.smoothWheel = isDesktop;
+            }
+        });
 
         // Hamburger Menu Toggle
         const hamburger = document.getElementById("hamburgerMenu");
@@ -1278,6 +1356,55 @@
             });
         }, { threshold: 0.2 });
         if (skillsSection) skillObserver.observe(skillsSection);
+
+        // Entrance Staggered Animations on Page Load
+        document.addEventListener("DOMContentLoaded", () => {
+            const tag = document.querySelector(".hero-text .tag");
+            const h1 = document.querySelector(".hero-text h1");
+            const p = document.querySelector(".hero-text p");
+            const buttons = document.querySelector(".hero-text .buttons");
+            const heroCard = document.querySelector(".hero-card");
+
+            if (tag) {
+                tag.style.opacity = "0";
+                tag.classList.add("animate-slide-up");
+                tag.style.animation = "slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                tag.style.animationDelay = "0.1s";
+            }
+            if (h1) {
+                h1.style.opacity = "0";
+                h1.classList.add("animate-slide-up");
+                h1.style.animation = "slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                h1.style.animationDelay = "0.2s";
+            }
+            if (p) {
+                p.style.opacity = "0";
+                p.classList.add("animate-slide-up");
+                p.style.animation = "slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                p.style.animationDelay = "0.3s";
+            }
+            if (buttons) {
+                buttons.style.opacity = "0";
+                buttons.classList.add("animate-slide-up");
+                buttons.style.animation = "slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                buttons.style.animationDelay = "0.4s";
+            }
+            if (heroCard) {
+                heroCard.style.opacity = "0";
+                heroCard.classList.add("animate-scale-up");
+                heroCard.style.animation = "scaleFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                heroCard.style.animationDelay = "0.5s";
+            }
+
+            // Globally handle image lazy loading (except for profile-img which is eager loaded)
+            document.querySelectorAll('img').forEach(img => {
+                if (img.classList.contains('profile-img')) {
+                    img.setAttribute('loading', 'eager');
+                } else {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        });
     </script>
 </body>
 </html>
