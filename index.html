@@ -759,24 +759,223 @@
                 width: 100%;
             }
         }
+
+        /* Lenis Smooth Scroll Override */
+        html {
+            scroll-behavior: auto !important;
+        }
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        /* Typography & Readability Overrides */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2 !important;
+        }
+        p, li, span, a, label {
+            line-height: 1.6 !important;
+        }
+        p {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+        .light-mode p {
+            color: #475569;
+        }
+
+        /* Logo Styling */
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #f8fafc;
+            text-decoration: none;
+            letter-spacing: -1.5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .logo-accent {
+            color: #38bdf8;
+        }
+        .light-mode .logo {
+            color: #0f172a;
+        }
+        .light-mode .logo-accent {
+            color: #0ea5e9;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
+        }
+
+        /* Lucide Icon Alignment */
+        .lucide {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .nav-link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .card h3, .project-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Hamburger Menu CSS */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background-color: #38bdf8;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        .light-mode .hamburger span {
+            background-color: #0ea5e9;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        header {
+            animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .hero-text {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+        .hero-card {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+
+        /* Responsive menu rules */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+            }
+            nav ul {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 280px !important;
+                height: 100vh !important;
+                background: rgba(2, 6, 23, 0.98) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 30px !important;
+                padding: 40px !important;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+                border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+                z-index: 999 !important;
+            }
+            .light-mode nav ul {
+                background: rgba(255, 255, 255, 0.98) !important;
+                border-left-color: rgba(0, 0, 0, 0.05) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
+            }
+            nav ul.active {
+                right: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <h2>BHUVANESH SELVARAJ</h2>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="#home" class="logo">B<span class="logo-accent">.S.</span></a>
+            <ul id="navLinks">
+                <li><a href="#home" class="nav-link-item"><i data-lucide="home"></i>Home</a></li>
+                <li><a href="#about" class="nav-link-item"><i data-lucide="user"></i>About</a></li>
+                <li><a href="#skills" class="nav-link-item"><i data-lucide="cpu"></i>Skills</a></li>
+                <li><a href="#experience" class="nav-link-item"><i data-lucide="briefcase"></i>Experience</a></li>
+                <li><a href="#projects" class="nav-link-item"><i data-lucide="presentation"></i>Projects</a></li>
+                <li><a href="#education" class="nav-link-item"><i data-lucide="graduation-cap"></i>Education</a></li>
+                <li><a href="#courses" class="nav-link-item"><i data-lucide="book-open"></i>Courses</a></li>
+                <li><a href="#contact" class="nav-link-item"><i data-lucide="mail"></i>Contact</a></li>
             </ul>
-            <button id="themeToggle">☀️ Light</button>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button id="themeToggle">☀️ Light</button>
+                <button class="hamburger" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -786,67 +985,67 @@
             <h1>Hi, I'm <span class="typewriter">BHUVANESH SELVARAJ</span></h1>
             <p>Aspiring Business Analyst passionate about analytics, dashboards, SQL, Python, Power BI and data-driven decision making.</p>
             <div class="buttons">
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="web_resume.pdf" download="BHUVANESH_SELVARAJ_Resume.pdf" class="btn-outline">Download Resume</a>
-                <a href="#contact" class="btn-outline">Contact Me</a>
+                <a href="#projects" class="btn"><i data-lucide="presentation"></i>View Projects</a>
+                <a href="web_resume.pdf" download="BHUVANESH_SELVARAJ_Resume.pdf" class="btn-outline"><i data-lucide="download"></i>Download Resume</a>
+                <a href="#contact" class="btn-outline"><i data-lucide="mail"></i>Contact Me</a>
             </div>
         </div>
         <div class="hero-card">
-            <img src="profile.jpg" alt="BHUVANESH SELVARAJ" class="profile-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Profile';">
+            <img src="profile.jpg" alt="BHUVANESH SELVARAJ" class="profile-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Profile';" loading="eager" fetchpriority="high">
             <h2>Data & Analytics</h2>
             <p>Transforming business data into strategic insights.</p>
         </div>
     </section>
 
     <section id="about" class="section reveal">
-        <h2>About Me</h2>
+        <h2><i data-lucide="user" class="section-icon"></i>About Me</h2>
         <div class="card">
             <p>Seeking a challenging position in a reputable organization to expand and utilize my learning, skills and knowledge. Passionate about business analytics, finance, customer service, and data visualization.</p>
         </div>
     </section>
 
     <section id="skills" class="section reveal">
-        <h2>Skills & Tools</h2>
+        <h2><i data-lucide="cpu" class="section-icon"></i>Skills & Tools</h2>
         <div class="skills-grid">
             <div class="skill-bar-container">
-                <div class="skill-name">SQL</div>
+                <div class="skill-name"><i data-lucide="database" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>SQL</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Python</div>
+                <div class="skill-name"><i data-lucide="terminal" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Python</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Power BI</div>
+                <div class="skill-name"><i data-lucide="bar-chart-3" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Power BI</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Tableau</div>
+                <div class="skill-name"><i data-lucide="pie-chart" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Tableau</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Excel</div>
+                <div class="skill-name"><i data-lucide="sheet" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Excel</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Finance</div>
+                <div class="skill-name"><i data-lucide="trending-up" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Finance</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Customer Service</div>
+                <div class="skill-name"><i data-lucide="users" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Customer Service</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
             </div>
             <div class="skill-bar-container">
-                <div class="skill-name">Problem Solving</div>
+                <div class="skill-name"><i data-lucide="lightbulb" style="margin-right: 6px; width: 14px; height: 14px; color: #38bdf8;"></i>Problem Solving</div>
                 <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
             </div>
         </div>
     </section>
 
     <section id="experience" class="section reveal">
-        <h2>Experience</h2>
+        <h2><i data-lucide="briefcase" class="section-icon"></i>Experience</h2>
         <div class="card expandable">
-            <h3>Chegg <span class="icon">▼</span></h3>
+            <h3><span style="display: flex; align-items: center; gap: 8px;"><i data-lucide="book-open" style="color: #38bdf8;"></i>Chegg</span><span class="icon">▼</span></h3>
             <p>Subject Matter Expert (Operations Management & Economics) • Feb 2023 – Jun 2025 (Part-Time)</p>
             <div class="details">
                 <br>
@@ -859,7 +1058,7 @@
             </div>
         </div>
         <div class="card expandable">
-            <h3>Federal Bank <span class="icon">▼</span></h3>
+            <h3><span style="display: flex; align-items: center; gap: 8px;"><i data-lucide="landmark" style="color: #38bdf8;"></i>Federal Bank</span><span class="icon">▼</span></h3>
             <p>Customer Service Associate</p>
             <div class="details">
                 <br>
@@ -872,7 +1071,7 @@
             </div>
         </div>
         <div class="card expandable">
-            <h3>Learning Vertos <span class="icon">▼</span></h3>
+            <h3><span style="display: flex; align-items: center; gap: 8px;"><i data-lucide="trending-up" style="color: #38bdf8;"></i>Learning Vertos</span><span class="icon">▼</span></h3>
             <p>BDA Internship</p>
             <div class="details">
                 <br>
@@ -887,25 +1086,25 @@
     </section>
 
     <section id="projects" class="section reveal">
-        <h2>Projects</h2>
+        <h2><i data-lucide="presentation" class="section-icon"></i>Projects</h2>
         <div class="project-card">
-            <h3>Risk and Return Analysis of SBI Mutual Funds</h3>
+            <h3><i data-lucide="pie-chart" style="color: #38bdf8; margin-right: 8px;"></i>Risk and Return Analysis of SBI Mutual Funds</h3>
             <p>Conducted a financial performance analysis of six SBI Mutual Fund schemes using historical NAV data from 2016–2021. Evaluated risk-return characteristics and investment performance through quantitative financial metrics, including Standard Deviation, Beta, Sharpe Ratio, Treynor Ratio, and Jensen's Alpha. The study compared equity, hybrid, mid-cap, small-cap, and debt funds to identify investment opportunities and assess portfolio performance. Findings highlighted the trade-off between risk and return, with SBI Small Cap Fund delivering the highest returns and SBI Equity Hybrid Fund providing the best risk-adjusted performance.</p>
             <span>Finance • Analytics • Investment Research</span>
         </div>
         <div class="project-card">
-            <h3>Amarjothi Spinning Mills Study</h3>
+            <h3><i data-lucide="factory" style="color: #38bdf8; margin-right: 8px;"></i>Amarjothi Spinning Mills Study</h3>
             <p>Completed an organizational study at Amarjothi Spinning Mills, a textile dyeing and yarn manufacturing company, to gain practical exposure to business operations, production processes, and industrial management. Analyzed the organizational structure, departmental functions, dyeing and spinning operations, sustainability practices, quality management systems, and operational strategies. The study provided insights into manufacturing workflows, process optimization, waste reduction initiatives, environmental sustainability, and operational efficiency within the textile industry.</p>
             <span>Business Operations • Industry Analysis</span>
         </div>
     </section>
 
     <section id="education" class="section reveal">
-        <h2>Education</h2>
+        <h2><i data-lucide="graduation-cap" class="section-icon"></i>Education</h2>
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">BBA</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="book-open" style="color: #38bdf8;"></i>BBA</h3>
                     <p style="color: #94a3b8; font-size: 15px;">Sri Krishna Arts and Science College</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">CGPA: 7.9</span>
@@ -914,7 +1113,7 @@
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">HSC (12th Grade)</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>HSC (12th Grade)</h3>
                     <p style="color: #94a3b8; font-size: 15px;">BUDS F.H.V.M. HR. SEC SCHOOL</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">89%</span>
@@ -923,7 +1122,7 @@
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">SSLC (10th Grade)</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><i data-lucide="school" style="color: #38bdf8;"></i>SSLC (10th Grade)</h3>
                     <p style="color: #94a3b8; font-size: 15px;">BUDS F.H.V.M. HR. SEC SCHOOL</p>
                 </div>
                 <span style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">87%</span>
@@ -932,7 +1131,7 @@
     </section>
 
     <section id="courses" class="section reveal">
-        <h2>Additional Courses</h2>
+        <h2><i data-lucide="award" class="section-icon"></i>Additional Courses</h2>
         <div class="course-grid">
             <div class="skill">Data Science</div>
             <div class="skill">Advanced Excel</div>
@@ -949,13 +1148,13 @@
     </section>
 
     <section id="contact" class="section contact reveal">
-        <h2>Contact</h2>
+        <h2><i data-lucide="mail" class="section-icon"></i>Contact</h2>
         <p style="margin-bottom: 25px; color: #94a3b8;">Feel free to reach out directly or connect with me on social platforms!</p>
         <div class="buttons">
-            <a href="mailto:bhuvanesh7766@gmail.com" class="btn-outline">Email</a>
-            <a href="tel:+916382807605" class="btn-outline">Phone</a>
-            <a href="https://www.linkedin.com/in/bhuvanesh-s-aa9b05239/" target="_blank" class="btn-outline">LinkedIn</a>
-            <a href="https://github.com/bhuvanesh-s" target="_blank" class="btn-outline">GitHub</a>
+            <a href="mailto:bhuvanesh7766@gmail.com" class="btn-outline"><i data-lucide="mail"></i>Email</a>
+            <a href="tel:+916382807605" class="btn-outline"><i data-lucide="phone"></i>Phone</a>
+            <a href="https://www.linkedin.com/in/bhuvanesh-s-aa9b05239/" target="_blank" class="btn-outline"><i data-lucide="linkedin"></i>LinkedIn</a>
+            <a href="https://github.com/bhuvanesh-s" target="_blank" class="btn-outline"><i data-lucide="github"></i>GitHub</a>
         </div>
     </section>
 
@@ -963,7 +1162,55 @@
         <p>© 2026 BHUVANESH SELVARAJ | Business Analytics Portfolio</p>
     </footer>
 
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lenis Smooth Scroll CDN -->
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
     <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Lenis Smooth Scroll (Optimized: Smooth Wheel on Desktop, Native Touch on Mobile/Tablet)
+        const lenis = new Lenis({
+            smoothWheel: true,
+            smoothTouch: false,
+            duration: 1.2
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburgerMenu");
+        const navLinks = document.getElementById("navLinks");
+        const navItems = document.querySelectorAll("#navLinks a");
+
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Close menu when clicking outside of it
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            }
+        });
+
         // Theme Toggle
         const toggleBtn = document.getElementById("themeToggle");
 
