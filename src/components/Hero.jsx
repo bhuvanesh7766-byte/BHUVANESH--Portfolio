@@ -51,7 +51,7 @@ export default function Hero() {
               View Works
               <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
-            <a href="/web_resume.pdf" download="BHUVANESH_SELVARAJ_Resume.pdf" className="group flex items-center gap-2 px-8 py-4 bg-white border border-neutral-200 shadow-sm text-neutral-900 rounded-full font-medium hover:bg-neutral-50 transition-all duration-300">
+            <a href={`${import.meta.env.BASE_URL}web_resume.pdf`} download="BHUVANESH_SELVARAJ_Resume.pdf" className="group flex items-center gap-2 px-8 py-4 bg-white border border-neutral-200 shadow-sm text-neutral-900 rounded-full font-medium hover:bg-neutral-50 transition-all duration-300">
               <Download size={18} />
               Resume
             </a>
@@ -67,7 +67,7 @@ export default function Hero() {
             className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
           >
             <img 
-              src="/profile.jpg" 
+              src={`${import.meta.env.BASE_URL}profile.jpg`} 
               alt="Bhuvanesh Selvaraj" 
               className="w-full h-full object-cover"
               onError={(e) => { e.target.src = 'https://via.placeholder.com/600x800?text=BS' }}
