@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DVpe7PXp.js";import{n as t}from"./index-CiDduz20.js";var n=e();function r({children:e,delay:r=0,className:i=``}){return(0,n.jsx)(t.div,{initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:`-100px`},transition:{duration:.7,ease:[.21,.47,.32,.98],delay:r},className:i,children:e})}export{r as t};
