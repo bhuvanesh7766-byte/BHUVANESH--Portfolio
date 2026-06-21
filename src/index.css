@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .bento-card {
+    @apply relative bg-white border border-neutral-200 rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:border-neutral-300 hover:shadow-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-neutral-900 via-neutral-600 to-neutral-400;
+  }
+}
+
+body {
+  background-color: #fafafa;
+  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fafafa 70%);
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
