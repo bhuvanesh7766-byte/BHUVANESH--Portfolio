@@ -35,7 +35,7 @@ export default function About() {
         <FadeIn className="bento-card flex flex-col justify-between group" delay={0.2}>
           <div>
             <span className="text-sm font-bold uppercase tracking-wider text-neutral-500">Education</span>
-            <h3 className="text-2xl font-bold mt-2 leading-tight text-neutral-900">BBA in Arts & Science</h3>
+            <h3 className="text-2xl font-bold mt-2 leading-tight text-neutral-900">Graduate - BBA</h3>
           </div>
           <div className="mt-8 text-right">
             <span className="text-5xl font-black tracking-tighter text-neutral-900">7.9</span>

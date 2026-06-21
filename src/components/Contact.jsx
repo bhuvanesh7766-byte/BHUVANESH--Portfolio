@@ -1,5 +1,5 @@
 import FadeIn from './FadeIn';
-import { Mail, Phone, Globe, Terminal, ArrowUpRight } from 'lucide-react';
+import { Mail, Globe, Terminal, ArrowUpRight } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -20,14 +20,10 @@ export default function Contact() {
           </a>
         </FadeIn>
 
-        <FadeIn delay={0.3} className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-neutral-200 pt-12">
+        <FadeIn delay={0.3} className="grid grid-cols-3 gap-4 border-t border-neutral-200 pt-12">
           <a href="mailto:bhuvanesh7766@gmail.com" className="flex flex-col items-center gap-2 text-neutral-500 hover:text-neutral-900 transition-colors">
             <Mail size={24} />
             <span className="text-sm font-medium mt-2">Email</span>
-          </a>
-          <a href="tel:+916382807605" className="flex flex-col items-center gap-2 text-neutral-500 hover:text-neutral-900 transition-colors">
-            <Phone size={24} />
-            <span className="text-sm font-medium mt-2">Phone</span>
           </a>
           <a href="https://www.linkedin.com/in/bhuvanesh-s-aa9b05239/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-neutral-500 hover:text-neutral-900 transition-colors">
             <Globe size={24} />
