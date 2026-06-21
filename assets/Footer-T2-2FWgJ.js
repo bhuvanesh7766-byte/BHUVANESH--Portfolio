@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DVpe7PXp.js";var t=e();function n(){return(0,t.jsx)(`footer`,{className:`text-center py-8 bg-neutral-100 border-t border-neutral-200`,children:(0,t.jsxs)(`p`,{className:`text-neutral-500 text-sm font-medium tracking-wide`,children:[`© `,new Date().getFullYear(),` Bhuvanesh Selvaraj. All rights reserved.`]})})}export{n as default};
